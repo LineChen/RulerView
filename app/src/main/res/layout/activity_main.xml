@@ -10,14 +10,33 @@
     android:orientation="vertical"
     tools:context="com.beiing.rulerview.MainActivity">
 
-    <TextView
+    <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="RulerView" />
+        android:text="left"
+        android:onClick="left"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="right"
+        android:onClick="right"/>
 
-    <com.beiing.rulerview.widget.RulerView
+    <com.beiing.rulerview.widget.TestScroller
+        android:id="@+id/scroller"
         android:layout_width="match_parent"
-        android:layout_height="50dp" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="TestScroller" />
+    </com.beiing.rulerview.widget.TestScroller>
+
+
+
+    <!--<com.beiing.rulerview.widget.RulerView-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="50dp" />-->
 
 
 </LinearLayout>

@@ -1,4 +1,4 @@
-package com.beiing.rulerview.widget;
+package com.beiing.ruler;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
@@ -14,6 +14,7 @@ import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.widget.Scroller;
+
 @SuppressLint("ClickableViewAccessibility")
 public class RulerView extends View {
  
@@ -56,9 +57,13 @@ public class RulerView extends View {
         mMinVelocity = ViewConfiguration.get(getContext()).getScaledMinimumFlingVelocity();
  
         // setBackgroundResource(R.drawable.bg_wheel);
-        setBackgroundDrawable(createBackground());
+//        setBackgroundDrawable(createBackground());
     }
- 
+
+    /**
+     * 创建控件背景
+     * @return
+     */
     private GradientDrawable createBackground() {
         float strokeWidth = 1 * mDensity; // 边框宽度
         float roundRadius = 6 * mDensity; // 圆角半径
@@ -275,7 +280,6 @@ public class RulerView extends View {
      * @param canvas
      */
     private void drawMiddleLine(Canvas canvas) {
-        // TOOD 常量太多，暂时放这，最终会放在类的开始，放远了怕很快忘记
         int gap = 12, indexWidth = 5, indexTitleWidth = 24, indexTitleHight = 10, shadow = 6;
         String color = "#66999999";
  
