@@ -273,7 +273,7 @@ public class RulerView extends View {
      * 画中间的红色指示线、阴影等。指示线两端简单的用了两个矩形代替
      * 
      * @param canvas
-     */
+    */
     private void drawMiddleLine(Canvas canvas) {
         // TOOD 常量太多，暂时放这，最终会放在类的开始，放远了怕很快忘记
         int gap = 12, indexWidth = 5, indexTitleWidth = 24, indexTitleHight = 10, shadow = 6;

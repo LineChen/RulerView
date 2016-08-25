@@ -33,10 +33,13 @@
     </com.beiing.rulerview.widget.TestScroller>
 
 
+    <com.beiing.rulerview.widget.NewRulerView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
 
-    <!--<com.beiing.rulerview.widget.RulerView-->
-        <!--android:layout_width="match_parent"-->
-        <!--android:layout_height="50dp" />-->
+    <com.beiing.rulerview.widget.RulerView
+        android:layout_width="match_parent"
+        android:layout_height="100dp" />
 
 
 </LinearLayout>
