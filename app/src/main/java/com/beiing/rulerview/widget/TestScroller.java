@@ -2,6 +2,9 @@ package com.beiing.rulerview.widget;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.MotionEvent;
+import android.view.VelocityTracker;
+import android.view.ViewConfiguration;
 import android.widget.LinearLayout;
 import android.widget.Scroller;
 
@@ -24,6 +27,54 @@ public class TestScroller extends LinearLayout {
     public TestScroller(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mScroller = new Scroller(context);
+    }
+
+
+
+    VelocityTracker mVelocityTracker;
+
+    int mLastX, mMove;
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        int action = event.getAction();
+        int xPosition = (int) event.getX();
+
+        if (mVelocityTracker == null) {
+            mVelocityTracker = VelocityTracker.obtain();
+        }
+        mVelocityTracker.addMovement(event);
+
+        switch (action) {
+            case MotionEvent.ACTION_DOWN:
+                mScroller.abortAnimation();
+                mLastX = xPosition;
+                mMove = 0;
+                break;
+            case MotionEvent.ACTION_MOVE:
+                mMove = (mLastX - xPosition);
+                smoothScrollBy(mMove, 0);
+//                changeMoveAndValue();
+                break;
+            case MotionEvent.ACTION_UP:
+            case MotionEvent.ACTION_CANCEL:
+//                countMoveEnd();
+                countVelocityTracker();
+                return true;
+            default:
+                break;
+        }
+
+        mLastX = xPosition;
+        return true;
+    }
+
+    private void countVelocityTracker() {
+        mVelocityTracker.computeCurrentVelocity(1000);
+        float xVelocity = mVelocityTracker.getXVelocity();
+        if (Math.abs(xVelocity) > ViewConfiguration.get(getContext()).getScaledMinimumFlingVelocity()) {
+            mScroller.fling(0, 0, (int) xVelocity, 0, Integer.MIN_VALUE, Integer.MAX_VALUE, 0, 0);
+        }
     }
 
 

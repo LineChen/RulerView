@@ -34,8 +34,9 @@
 
 
     <com.beiing.rulerview.widget.NewRulerView
+        android:id="@+id/new_ruler"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="80dp" />
 
     <com.beiing.rulerview.widget.RulerView
         android:layout_width="match_parent"
