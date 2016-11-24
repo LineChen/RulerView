@@ -30,7 +30,6 @@ public class TestScroller extends LinearLayout {
     }
 
 
-
     VelocityTracker mVelocityTracker;
 
     int mLastX, mMove;
